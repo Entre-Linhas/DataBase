@@ -1,8 +1,40 @@
-drop database entrelinhas;
+drop database entrelinhasdb;
 
-create database entrelinhas;
+create database entrelinhasdb;
 
-use entrelinhas;
+use entrelinhasdb;
+
+CREATE TABLE `materia` (
+	`id_materia` bigint PRIMARY KEY AUTO_INCREMENT,
+  `titulo_pag` VARCHAR(255),
+  `img` VARCHAR(255),
+  `txt1` TEXT,
+  `txt2` TEXT,
+  `txt3` TEXT
+);
+
+CREATE TABLE `pratica` (
+	`id_pratica` bigint PRIMARY KEY AUTO_INCREMENT,
+  `titulo_pag` VARCHAR(255),
+  `subtitulo_pag` VARCHAR(255),
+  `txt1` TEXT,
+  `txt2` TEXT,
+  `txt3` TEXT,
+  `txt4` TEXT
+);
+
+CREATE TABLE `dica` (
+	`id_dica` bigint PRIMARY KEY AUTO_INCREMENT,
+  `titulo_pag` VARCHAR(255),
+  `txt1` TEXT,
+  `txt2` TEXT,
+  `txt3` TEXT,
+  `txt4` TEXT,
+	`txt5` TEXT,
+  `txt6` TEXT,
+  `txt7` TEXT,
+  `txt8` TEXT
+);
 
 CREATE TABLE `conteudo` (
 	`id_conteudo` bigint AUTO_INCREMENT,
@@ -43,12 +75,18 @@ CREATE TABLE `atividades` (
 	`status` varchar(255),
 	`progresso` FLOAT,
 	`id_conteudo` bigint,
+    `id_materia` bigint,
+    `id_pratica` bigint,
+    `id_dica` bigint,
 	PRIMARY KEY (`id_atividades`), 
-	FOREIGN KEY (id_conteudo) REFERENCES `conteudo`(id_conteudo)
+	FOREIGN KEY (id_conteudo) REFERENCES `conteudo`(id_conteudo),
+    FOREIGN KEY (id_materia) REFERENCES `materia`(id_materia),
+    FOREIGN KEY (id_pratica) REFERENCES `pratica`(id_pratica),
+    FOREIGN KEY (id_dica) REFERENCES `dica`(id_dica)
 );
 
 CREATE TABLE `trilhas` (
-	`id_trilhas` bigint AUTO_INCREMENT,
+	`id_trilhas` bigint,
 	`titulo` varchar(255),
 	`status` varchar(255),
 	`data_criacao` datetime,
@@ -88,11 +126,9 @@ CREATE TABLE `usuario` (
 	`cnpj` varchar(20),
 	`id_plano` bigint,
 	`id_status` bigint,
-	`id_trilhas` bigint,
 	PRIMARY KEY (`id_usuario`), 
 	FOREIGN KEY (id_plano) REFERENCES `plano`(id_plano),
-	FOREIGN KEY (id_status) REFERENCES `status`(id_status),
-	FOREIGN KEY (id_trilhas) REFERENCES `trilhas`(id_trilhas)
+	FOREIGN KEY (id_status) REFERENCES `status`(id_status)
 );
 
 CREATE TABLE `perfil` (
@@ -104,6 +140,7 @@ CREATE TABLE `perfil` (
 	`daily` DATE,
 	`combo` INT,
 	`max_combo` INT,
+	`progresso` FLOAT,
 	`id_usuario` bigint,
 	`id_trilhas` bigint,
 	`id_ferramentas` bigint,
@@ -163,34 +200,67 @@ CREATE TABLE `notificacao` (
 	FOREIGN KEY (id_usuario) REFERENCES `usuario`(id_usuario)
 );
 
-CREATE TABLE `materia` (
-	`id_materia` bigint PRIMARY KEY AUTO_INCREMENT,
-  `titulo_pag` VARCHAR(255),
-  `img` VARCHAR(255),
-  `txt1` TEXT,
-  `txt2` TEXT,
-  `txt3` TEXT
-);
+-- Bases para colocar os conteudos da trilha educacional
 
-CREATE TABLE `pratica` (
-	`id_pratica` bigint PRIMARY KEY AUTO_INCREMENT,
-  `titulo_pag` VARCHAR(255),
-  `subtitulo_pag` VARCHAR(255),
-  `txt1` TEXT,
-  `txt2` TEXT,
-  `txt3` TEXT,
-  `txt4` TEXT
-);
+-- MATERIA
+INSERT INTO materia (id_materia, titulo_pag, img, txt1, txt2, txt3) VALUES (
+1,
+ "tituloTexto",
+ "Source da imagem que estará em outra API",
+ "txt",
+ "txt",
+ "txt"), 
+ 
+ (2,
+ "tituloTexto",
+ "Source da imagem que estará em outra API",
+ "txt",
+ "txt",
+ "txt"); 
+ 
+ -- PRATICA
+INSERT INTO pratica (id_pratica, titulo_pag, subtitulo_pag, txt1, txt2, txt3, txt4) VALUES (
+1,
+ "tituloText22",
+ "Subtit",
+ "txt", "txt",
+ "txt",
+ "txt"),
+ (
+2,
+ "tituloText22",
+ "Subtit",
+ "txt", "txt",
+ "txt",
+ "txt");
 
-CREATE TABLE `dica` (
-	`id_dica` bigint PRIMARY KEY AUTO_INCREMENT,
-  `titulo_pag` VARCHAR(255),
-  `txt1` TEXT,
-  `txt2` TEXT,
-  `txt3` TEXT,
-  `txt4` TEXT,
-	`txt5` TEXT,
-  `txt6` TEXT,
-  `txt7` TEXT,
-  `txt8` TEXT
-);
+-- DICA
+INSERT INTO dica (id_dica, titulo_pag, txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8) VALUES (
+1,
+ "tituloText7777",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt"),
+ (
+2,
+ "tituloText7777",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt",
+ "txt"); 
+
+-- Testes para a API
+-- INSERT INTO perfil (nivel) VALUES (10); -- desnecessario 
+SELECT * FROM entrelinhasdb.usuario;
+SELECT * FROM entrelinhasdb.perfil;
+SELECT * FROM entrelinhasdb.trilhas;
+-- INSERT INTO dica (column1) VALUES (value1); -- considere o id
