@@ -16,7 +16,14 @@
 <hr>
 <br>
 <hr>
-<h2 align="center"> Melhorias </h2>
-<h5 align="center"> Alterações aplicadas </h5>
+<h2 align="center"> Melhorias e correções</h2>
+<h3 align="center"> Adicioção das tabelas </h3>
+<h5 align="center"> Materia, Pratica e Dica</h5>
 <img src="UpdateDataBaseAndAPIModel_Sucess.png"> </img>
 <br>
+<hr>
+<h3 align="center"> Alteração da tabela </h3>
+<h5 align="center"> Atividades - add FKs</h5>
+<img src="AlterAtividades.png"> </img>
+<br>
+
