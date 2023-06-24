@@ -86,7 +86,7 @@ CREATE TABLE `atividades` (
 );
 
 CREATE TABLE `trilhas` (
-	`id_trilhas` bigint,
+	`id_trilhas` bigint AUTO_INCREMENT,
 	`titulo` varchar(255),
 	`status` varchar(255),
 	`data_criacao` datetime,
@@ -192,7 +192,7 @@ CREATE TABLE `redes_sociais` (
 );
 
 CREATE TABLE `notificacao` (
-	`id_notificacao` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`id_notificacao` bigint AUTO_INCREMENT PRIMARY KEY,
 	`nome_notificacao` varchar(255),
 	`descricao` TEXT,
 	`source` varchar(255),
@@ -200,12 +200,13 @@ CREATE TABLE `notificacao` (
 	FOREIGN KEY (id_usuario) REFERENCES `usuario`(id_usuario)
 );
 
--- Bases para colocar os conteudos da trilha educacional
+-- BASES para colocar os conteudos da trilha educacional
 
+-- INSERT INTO dica (column1) VALUES (value1); -- considere o id
 -- MATERIA
 INSERT INTO materia (id_materia, titulo_pag, img, txt1, txt2, txt3) VALUES (
 1,
- "tituloTexto",
+ "Definindo o seu negocio",
  "Source da imagem que estará em outra API",
  "txt",
  "txt",
@@ -258,9 +259,13 @@ INSERT INTO dica (id_dica, titulo_pag, txt1, txt2, txt3, txt4, txt5, txt6, txt7,
  "txt",
  "txt"); 
 
--- Testes para a API
+-- TESTES para a API
 -- INSERT INTO perfil (nivel) VALUES (10); -- desnecessario 
-SELECT * FROM entrelinhasdb.usuario;
-SELECT * FROM entrelinhasdb.perfil;
-SELECT * FROM entrelinhasdb.trilhas;
--- INSERT INTO dica (column1) VALUES (value1); -- considere o id
+
+-- SELECT * FROM entrelinhasdb.usuario;
+-- SELECT * FROM entrelinhasdb.perfil;
+-- SELECT * FROM entrelinhasdb.trilhas;
+-- SELECT * FROM entrelinhasdb.atividades;
+-- SELECT * FROM entrelinhasdb.materia;
+
+-- INSERT INTO trilhas (id_trilhas, titulo, `status`, data_criacao, nivel_minimo, id_atividades, id_status) VALUES (1, null, null, null, 0, null, null);
