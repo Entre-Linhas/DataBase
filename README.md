@@ -14,10 +14,8 @@
 <img src="DBFisico-Entrelinhas.png"> </img>
 <br>
 <hr>
-<br>
-<hr>
 <h2 align="center"> Melhorias e correções</h2>
-<h3 align="center"> Adicioção das tabelas </h3>
+<h3 align="center"> Adição das tabelas </h3>
 <h5 align="center"> Materia, Pratica e Dica</h5>
 <img src="UpdateDataBaseAndAPIModel_Sucess.png"> </img>
 <br>
