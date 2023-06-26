@@ -6,7 +6,7 @@
 <br>
 <hr>
 <h2 align="center"> Modelagem Lógica </h2>
-<img src="DB-Entrelinhas.png"> </img>
+<img src="entrelinhas.png"> </img>
 <br>
 <hr>
 <h2 align="center"> Modelagem Física </h2>
