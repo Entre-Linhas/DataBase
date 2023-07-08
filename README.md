@@ -22,6 +22,11 @@
 <hr>
 <h3 align="center"> Alteração da tabela </h3>
 <h5 align="center"> Atividades - add FKs</h5>
-<img src="AlterAtividades.png"> </img>
+<img src="AlterAtividades.PNG"> </img>
+<br>
+<hr>
+<h3 align="center"> Inserindo dados </h3>
+<h5 align="center"> Conteud e Praticas</h5>
+<img src="DataInsert.PNG"> </img>
 <br>
 
