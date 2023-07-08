@@ -179,20 +179,21 @@ CREATE TABLE `precificacao` (
 	FOREIGN KEY (id_pedidos) REFERENCES `pedidos`(id_pedidos)
 );
 
+-- mudei a fk da conquista para usuario
 CREATE TABLE `conquista` (
 	`id_conquista` bigint AUTO_INCREMENT,
 	`nome` varchar(255),
 	`data_conquista` DATE,
-	`id_perfil` bigint,
-	PRIMARY KEY (`id_conquista`), 
-	FOREIGN KEY (id_perfil) REFERENCES `perfil`(id_perfil)
-);
-
-CREATE TABLE `redes_sociais` (
-	`id_rede` bigint AUTO_INCREMENT,
-	`id_link` INT,
 	`id_usuario` bigint,
-	PRIMARY KEY (`id_rede`),
+	PRIMARY KEY (`id_conquista`), 
+	FOREIGN KEY (id_usuario) REFERENCES `usuario`(id_usuario)
+);
+-- mudei o nome da primary key para redeSocial e tirei troquei de id_link para link e de int para varchar(255)
+CREATE TABLE `redes_sociais` (
+	`id_rede_social` bigint AUTO_INCREMENT,
+	`link` varchar(250),
+	`id_usuario` bigint,
+	PRIMARY KEY (`id_rede_social`),
 	FOREIGN KEY (id_usuario) REFERENCES `usuario`(id_usuario)
 );
 
